@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script
+        src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+        crossorigin="anonymous"></script>
+<script>
+
+    function fn_click(){
+
+        $.ajax({
+            url : "/loginMain",
+            type : "GET", //POST로 할때는 403 오류 발생 spring security 때문에 발생하는것으로 보임
+            data : { key : 'korea' },
+            success : function(data) {
+
+            },
+            error : function() {
+                alert("접근성 오류 발생");
+                //location.href='/';
+            }
+        });
+    }
+
+</script>
+<body>
+<button onclick="fn_click()">데이터 가져오기</button>
+</body>
+</html>
